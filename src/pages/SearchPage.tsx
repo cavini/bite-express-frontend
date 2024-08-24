@@ -7,6 +7,7 @@ import SearchBar, { SearchForm } from "../components/SearchBar";
 import PaginationSelector from "../components/PaginationSelector";
 import CuisineFilter from "../components/CuisineFilter";
 import SortOptionDropdown from "../components/SortOptionDropdown";
+import { Loader2 } from "lucide-react";
 
 export type SearchState = {
   searchQuery: string;
@@ -68,7 +69,7 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    <span>Loading...</span>;
+    return <Loader2 scale={16 / 9} className="ml-2 h-4 w-full animate-spin" />;
   }
 
   if (!results?.data || !city) {
