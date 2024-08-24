@@ -12,14 +12,12 @@ export const useSearchRestaurants = (
     const params = new URLSearchParams();
     params.set("searchQuery", searchState.searchQuery);
     params.set("page", searchState.page.toString());
+    params.set("selectedCuisines", searchState.selectedCuisines.join(","));
+    params.set("sortOption", searchState.sortOption);
 
     const response = await fetch(
       `${API_BASE_URL}/api/restaurant/search/${city}?${params.toString()}`
     );
-
-    if (!response.ok) {
-      throw new Error("Failed to get restaurants");
-    }
 
     return response.json();
   };
@@ -27,7 +25,9 @@ export const useSearchRestaurants = (
   const { data: results, isLoading } = useQuery(
     ["searchRestaurants", searchState],
     createSearchRequest,
-    { enabled: !!city }
+    {
+      enabled: !!city,
+    }
   );
 
   return {
