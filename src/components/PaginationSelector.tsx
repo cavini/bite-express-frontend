@@ -24,6 +24,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
         {page !== 1 && (
           <PaginationItem>
             <PaginationPrevious
+              size={"default"}
               href="#"
               onClick={() => onPageChange(page - 1)}
             />
@@ -33,6 +34,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
         {pageNumbers.map((number) => (
           <PaginationItem>
             <PaginationLink
+              size={"default"}
               href="#"
               onClick={() => onPageChange(number)}
               isActive={page === number}
@@ -44,7 +46,11 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
 
         {page !== pageNumbers.length && (
           <PaginationItem>
-            <PaginationNext href="#" onClick={() => onPageChange(page + 1)} />
+            <PaginationNext
+              size={"default"}
+              href="#"
+              onClick={() => onPageChange(page + 1)}
+            />
           </PaginationItem>
         )}
       </PaginationContent>
