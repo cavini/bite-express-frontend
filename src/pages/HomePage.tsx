@@ -16,10 +16,7 @@ const HomePage = () => {
           When hunger strikes, we deliver.
         </h1>
         <span className="text-xl">Food is just a click away!</span>
-        <SearchBar
-          placeholder="Search by City or Restaurant"
-          onSubmit={handleSearchSubmit}
-        />
+        <SearchBar placeholder="Search by City" onSubmit={handleSearchSubmit} />
       </div>
       <div className="grid md:grid-cols-2 gap-5">
         <img src={landingImage} />

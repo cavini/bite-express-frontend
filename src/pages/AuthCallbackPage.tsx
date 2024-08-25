@@ -1,7 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCreateMyUser } from "../api/MyUserApi";
+import { useEffect, useRef } from "react";
+import { Loader2 } from "lucide-react";
 
 const AuthCallbackPage = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const AuthCallbackPage = () => {
     navigate("/");
   }, [createUser, navigate, user]);
 
-  return <>Loading...</>;
+  return <Loader2 scale={16 / 9} className="ml-2 h-4 w-full animate-spin" />;
 };
 
 export default AuthCallbackPage;
