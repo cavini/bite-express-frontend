@@ -30,10 +30,6 @@ const SearchBar = ({ onSubmit, onReset, placeholder, searchQuery }: Props) => {
   });
 
   useEffect(() => {
-    console.log("onsubmit called");
-  }, [onSubmit]);
-
-  useEffect(() => {
     form.reset({ searchQuery });
   }, [form, searchQuery]);
 
