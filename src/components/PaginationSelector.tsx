@@ -12,9 +12,18 @@ type Props = {
   pages: number;
   onPageChange: (page: number) => void;
 };
+
 const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
+  const maxPagesToShow = 10;
+  let startPage = Math.max(1, page - Math.floor(maxPagesToShow / 2));
+  const endPage = Math.min(pages, startPage + maxPagesToShow - 1);
+
+  if (endPage - startPage < maxPagesToShow - 1) {
+    startPage = Math.max(1, endPage - maxPagesToShow + 1);
+  }
+
   const pageNumbers = [];
-  for (let i = 1; i <= pages; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     pageNumbers.push(i);
   }
 
@@ -32,7 +41,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
         )}
 
         {pageNumbers.map((number) => (
-          <PaginationItem>
+          <PaginationItem key={number}>
             <PaginationLink
               size={"default"}
               href="#"
@@ -44,7 +53,7 @@ const PaginationSelector = ({ page, pages, onPageChange }: Props) => {
           </PaginationItem>
         ))}
 
-        {page !== pageNumbers.length && (
+        {page !== pages && (
           <PaginationItem>
             <PaginationNext
               size={"default"}
