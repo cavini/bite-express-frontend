@@ -2,6 +2,8 @@
 
 Welcome to **Bite Express**! This application is designed to offer a seamless experience for both restaurant customers and owners, allowing for a wide range of functionalities from searching for restaurants to managing orders in real-time.
 
+For the backend code, visit: https://github.com/cavini/bite-express-backend
+
 ## 🌟 Features
 
 ### For Customers:
